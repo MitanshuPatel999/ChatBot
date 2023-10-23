@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "eItt2A2jf30wn4H/iSsIZUtgo9v1KRP4m4vXgda0+U4=",
+  "Source": "ChatBot",
+  "BasePath": "_content/ChatBot",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ChatBot\\wwwroot",
+      "Source": "ChatBot",
+      "ContentRoot": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\",
+      "BasePath": "_content/ChatBot",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\css\\ui.css",
+      "SourceId": "ChatBot",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\",
+      "BasePath": "_content/ChatBot",
+      "RelativePath": "css/ui.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\ui.css"
+    },
+    {
+      "Identity": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\js\\ui.js",
+      "SourceId": "ChatBot",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\",
+      "BasePath": "_content/ChatBot",
+      "RelativePath": "js/ui.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ui.js"
+    }
+  ]
+}
