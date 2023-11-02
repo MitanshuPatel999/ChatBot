@@ -256,3 +256,4 @@ C:\Users\Gunjan\ChatBot\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspac
 C:\Users\Gunjan\ChatBot\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Gunjan\ChatBot\obj\Debug\net7.0\scopedcss\projectbundle\ChatBot.bundle.scp.css
 C:\Users\Gunjan\ChatBot\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Gunjan\ChatBot\bin\Debug\net7.0\RestSharp.dll

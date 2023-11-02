@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ChatBot.Models;
 
-namespace ChatBot.Views.DbCRUD
+namespace ChatBot.Pages
 {
     public class CreateModel : PageModel
     {
