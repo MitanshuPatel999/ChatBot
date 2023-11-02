@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eItt2A2jf30wn4H/iSsIZUtgo9v1KRP4m4vXgda0+U4=",
+  "Hash": "TKDHDnDximW0za32Z/ydkquc0cx8KWleYJCwfPs7R5k=",
   "Source": "ChatBot",
   "BasePath": "_content/ChatBot",
   "Mode": "Default",
@@ -16,6 +16,40 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\Gunjan\\ChatBot\\obj\\Debug\\net7.0\\scopedcss\\bundle\\ChatBot.styles.css",
+      "SourceId": "ChatBot",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Gunjan\\ChatBot\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/ChatBot",
+      "RelativePath": "ChatBot.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Gunjan\\ChatBot\\obj\\Debug\\net7.0\\scopedcss\\bundle\\ChatBot.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\Gunjan\\ChatBot\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ChatBot.bundle.scp.css",
+      "SourceId": "ChatBot",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Gunjan\\ChatBot\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/ChatBot",
+      "RelativePath": "ChatBot.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Gunjan\\ChatBot\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ChatBot.bundle.scp.css"
+    },
     {
       "Identity": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\css\\ui.css",
       "SourceId": "ChatBot",

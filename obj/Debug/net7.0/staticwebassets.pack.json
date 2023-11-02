@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Gunjan\\ChatBot\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ChatBot.bundle.scp.css",
+      "PackagePath": "staticwebassets\\ChatBot.bundle.scp.css"
+    },
+    {
       "Id": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\css\\ui.css",
       "PackagePath": "staticwebassets\\css\\ui.css"
     },

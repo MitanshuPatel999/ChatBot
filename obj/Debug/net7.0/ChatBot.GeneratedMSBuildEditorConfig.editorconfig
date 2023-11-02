@@ -16,10 +16,34 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Gunjan\ChatBot
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Gunjan/ChatBot/Pages/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gunjan/ChatBot/Pages/Crud.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3J1ZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gunjan/ChatBot/Pages/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gunjan/ChatBot/Pages/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gunjan/ChatBot/Pages/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gunjan/ChatBot/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Gunjan/ChatBot/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Gunjan/ChatBot/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = b-pn7ed9kuyw
