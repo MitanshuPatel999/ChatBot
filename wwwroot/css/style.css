@@ -64,3 +64,7 @@ button:hover {
     margin: 7px 0;
     border-radius: 50px;
 }
+
+.paragraph1{
+    font-weight: lighter;
+}

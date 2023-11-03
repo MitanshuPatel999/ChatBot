@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const chatBox = document.getElementById("chat-box");
     const userInput = document.getElementById("user-input");
     const sendButton = document.getElementById("send-button");
@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function addMessage(sender, message) {
         const messageDiv = document.createElement("div");
         messageDiv.classList.add(sender === "user" ? "user-message" : "bot-message");
-    
+
         if (sender === "user") {
             messageDiv.textContent = message;
             chatBox.appendChild(messageDiv);
@@ -15,16 +15,23 @@ document.addEventListener("DOMContentLoaded", function() {
             temporaryElement.innerHTML = message;
             const text = temporaryElement.textContent;
             const paragraphs = text.split('\n'); // Split text into paragraphs
-            
-            paragraphs.forEach(paragraph => {
-                const paragraphDiv = document.createElement('div');
-                // paragraphDiv.textContent = paragraph;
-                messageDiv.appendChild(paragraphDiv);
-                animateTyping(paragraph, paragraphDiv);
-            });
-    
+
+            paragraphs.forEach((paragraph, index) => {
+                if (index !== 0) {
+                    const paragraph1Div = document.createElement('div');
+                    paragraph1Div.classList.add('paragraph1');
+                    messageDiv.appendChild(paragraph1Div);
+                    animateTyping(paragraph, paragraph1Div)
+                } else {
+                    const paragraphDiv = document.createElement('div');
+                    messageDiv.appendChild(paragraphDiv);
+                    paragraphDiv.textContent = paragraph
+                };
+            }
+            );
+
             chatBox.appendChild(messageDiv);
-    
+
             // Animate the typing of the bot's message
             // animateTyping(text, messageDiv);
         }
@@ -33,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function animateTyping(message, messageDiv) {
         let currentIndex = 0;
 
-        const typingInterval = setInterval(function() {
+        const typingInterval = setInterval(function () {
             if (currentIndex < message.length) {
                 messageDiv.innerHTML += message.charAt(currentIndex);
                 currentIndex++;
@@ -44,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 50); // Adjust the typing speed by changing the interval (e.g., 50 milliseconds for a faster typing effect)
     }
 
-    sendButton.addEventListener("click",async function() {
+    sendButton.addEventListener("click", async function () {
         const userMessage = userInput.value;
         addMessage("user", userMessage);
         userInput.value = "";
@@ -60,13 +67,13 @@ document.addEventListener("DOMContentLoaded", function() {
         } else if (userMessage.toLowerCase() === "goodbye") {
             botResponse = "Bot: Goodbye! Have a great day!";
         } else {
-            botResponse="Bot: "+await displayAPIResponseInChatbot(userMessage);
+            botResponse = "Bot: " + await displayAPIResponseInChatbot(userMessage);
         }
 
         addMessage("bot", botResponse);
     });
 
-    userInput.addEventListener("keyup", function(event) {
+    userInput.addEventListener("keyup", function (event) {
         if (event.key === "Enter") {
             sendButton.click();
         }
@@ -79,12 +86,12 @@ async function displayAPIResponseInChatbot(userMessage) {
         // const chatbox = document.getElementById('chatbox');
         // chatbox.innerHTML = 'Fetching data...';
 
-        const response = await fetch('http://localhost:5037/api/rules/searchrules'+userMessage);
+        const response = await fetch('http://localhost:5037/api/rules/searchrules' + userMessage);
         const data = await response.json();
-        const title = "<b>"+data[0].title+"</b>\n";
+        const title = "<b>" + data[0].title + "</b>\n";
         const content = data[0].content;
-        const botResponse=title+"<br>"+content+"<br>";
-            // botResponse = JSON.stringify(data, null, 2);
+        const botResponse = title + "<br>" + content + "<br>";
+        // botResponse = JSON.stringify(data, null, 2);
         return botResponse;
     } catch (error) {
         console.error('Error fetching API data:', error);
