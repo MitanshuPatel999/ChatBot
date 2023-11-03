@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TKDHDnDximW0za32Z/ydkquc0cx8KWleYJCwfPs7R5k=",
+  "Hash": "bfuGNUfdqkBlXqGrVyg+4LBGFGO2THW64dnpbXjlAjA=",
   "Source": "ChatBot",
   "BasePath": "_content/ChatBot",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "C:\\Users\\Gunjan\\ChatBot\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ChatBot.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\css\\style.css",
+      "SourceId": "ChatBot",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\",
+      "BasePath": "_content/ChatBot",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
+    },
+    {
       "Identity": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\css\\ui.css",
       "SourceId": "ChatBot",
       "SourceType": "Discovered",
@@ -66,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\ui.css"
+    },
+    {
+      "Identity": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\js\\script.js",
+      "SourceId": "ChatBot",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\",
+      "BasePath": "_content/ChatBot",
+      "RelativePath": "js/script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\script.js"
     },
     {
       "Identity": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\js\\ui.js",

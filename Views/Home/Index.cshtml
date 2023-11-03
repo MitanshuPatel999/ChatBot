@@ -6,17 +6,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rule Expert ChatBot</title>
-    <link rel="stylesheet" href="~/css/ui.css" />
+    <title>Government Rules Chatbot</title>
+    <link rel="stylesheet" href="~/css/style.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #9fb5ec;
+        /* #e7e6c1 */
+      }
+      .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0 auto;
+        background-color: #e7e6c1;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 60px 60px 60px 60px rgba(0, 0, 0, 0.1);
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <h1>Rule Expert ChatBot</h1>
+      <h1>Government Rules Chatbot</h1>
       <div class="chat-box" id="chat-box"></div>
       <input type="text" id="user-input" placeholder="Type your message..." />
-      <button id="send-button">Send</button>
+      <center><button id="send-button">Send</button></center>
     </div>
-
-    <script src="~/js/ui.js"></script>
+    <script src="~/js/script.js"></script>
   </body>
 </html>

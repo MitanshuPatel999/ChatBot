@@ -5,8 +5,16 @@
       "PackagePath": "staticwebassets\\ChatBot.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
       "Id": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\css\\ui.css",
       "PackagePath": "staticwebassets\\css\\ui.css"
+    },
+    {
+      "Id": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\js\\script.js",
+      "PackagePath": "staticwebassets\\js\\script.js"
     },
     {
       "Id": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\js\\ui.js",
