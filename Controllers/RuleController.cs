@@ -97,6 +97,10 @@ public IActionResult RulesHindi(string query)
     .Take(3) // Get the top 3 rows with the most keyword matches
     .Select(r => r.Rule)
     .ToList(); 
+
+    top3Results[0].Content=translationService.Translate(top3Results[0].Content, "en", "hi");
+    top3Results[0].Title=translationService.Translate(top3Results[0].Title, "en", "hi");
+    Console.WriteLine(top3Results.Count());
     
      return Ok(top3Results);
 }
