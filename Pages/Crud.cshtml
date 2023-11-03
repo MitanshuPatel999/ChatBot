@@ -5,12 +5,19 @@
     ViewData["Title"] = "Index";
 }
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rule Database Management</title>
+    <link rel="stylesheet" type="text/css" href="~/css/crud.css" />
+</head>
+
 <h1>Rule Database Management</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a class="button" asp-page="Create">Create New</a>
 </p>
-<table class="table">
+<table class="rule-table">
     <thead>
         <tr>
             <th>
@@ -50,11 +57,12 @@
                 @Html.DisplayFor(modelItem => item.Source)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.RuleId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.RuleId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.RuleId">Delete</a>
+                <a class="button" asp-page="./Edit" asp-route-id="@item.RuleId">Edit</a>|
+                <a class="button" asp-page="./Details" asp-route-id="@item.RuleId">Details</a>|
+                <a class="button" asp-page="./Delete" asp-route-id="@item.RuleId">Delete</a>
             </td>
         </tr>
 }
+        <script src="~/js/crud.js"></script>
     </tbody>
 </table>

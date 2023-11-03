@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\ChatBot.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\css\\crud.css",
+      "PackagePath": "staticwebassets\\css\\crud.css"
+    },
+    {
       "Id": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
       "Id": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\css\\ui.css",
       "PackagePath": "staticwebassets\\css\\ui.css"
+    },
+    {
+      "Id": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\js\\crud.js",
+      "PackagePath": "staticwebassets\\js\\crud.js"
     },
     {
       "Id": "C:\\Users\\Gunjan\\ChatBot\\wwwroot\\js\\script.js",
