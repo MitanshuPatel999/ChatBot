@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Xh+oz1JrwMUOrm4shk7uEZSNn4pI4ueGrwwBByaU2wqP9tVZxTFAOta0o+Zz4oPX7H3frZJb3nNHB5f6jbssuQ==",
+  "dgSpecHash": "jG+wrfGjEiCWNYNHJy62a1pp3Lc2bqd0iWvhfnVEyXMKvwo7PbfrCTUK6O052uuz9GLZRsqwoJwNiKRbECekZQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Gunjan\\ChatBot\\ChatBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gunjan\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Gunjan\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\Gunjan\\.nuget\\packages\\detectlanguage\\1.0.0\\detectlanguage.1.0.0.nupkg.sha512",
     "C:\\Users\\Gunjan\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Gunjan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Gunjan\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

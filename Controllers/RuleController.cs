@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ChatBot.Models;
 using System.Text;
 using RestSharp;
+using DetectLanguage;
 namespace ChatBot.Data;
 
 
@@ -77,10 +78,11 @@ public IActionResult SearchRules(string query)
 [HttpGet("ruleshindi{query}")]
 public IActionResult RulesHindi(string query)
 {
-    var translationService = new TranslationService();
+    var translationService = new LanguageService();
     string query1 = translationService.Translate(query, "hi", "en");
     Console.OutputEncoding = System.Text.Encoding.UTF8;
-    Console.WriteLine(query1);
+    Console.WriteLine(query);
+    // translationService.Detect(query);
     string[] keywords=query1.Split(' ');
     var top3Results = _context.Rules.AsEnumerable()
     .Select(r => new
@@ -104,9 +106,60 @@ public IActionResult RulesHindi(string query)
     
      return Ok(top3Results);
 }
+
+[HttpGet("rulesmulti{query}")]
+public IActionResult RulesMulti(string query)
+{   
+    var aa=new AsyncAwait();
+    Task<List<Rule>> task=aa.AsaW(query,_context);
+    var top3=task.Result;
+    Console.WriteLine(top3.Count());
+    return  Ok(top3);
+    
 }
 
-public class TranslationService
+}
+
+public class AsyncAwait
+{public async Task<List<Rule>> AsaW(string query,MyDbContext _context){
+        var translationService = new LanguageService();
+    Task<string> task=translationService.Detect(query);
+    string languageCode=await task;
+    Console.WriteLine(languageCode);
+    string[] keywords=query.Split(' ');
+
+    if (languageCode!="en"){
+    string query1 = translationService.Translate(query, languageCode, "en");
+    keywords=query1.Split(' ');
+    }
+    // Console.OutputEncoding = System.Text.Encoding.UTF8;
+    var top3Results = _context.Rules.AsEnumerable()
+    .Select(r => new
+    {
+       Rule = r,
+        MatchCount = keywords.Count(keyword =>
+            (r.Title != null && r.Title.Contains(keyword, StringComparison.OrdinalIgnoreCase)) ||
+            (r.Content != null && r.Content.Contains(keyword, StringComparison.OrdinalIgnoreCase)) ||
+            (r.Source != null && r.Source.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+        )
+    })
+    .Where(r => r.MatchCount > 0) // Filter rows with at least one keyword match
+    .OrderByDescending(r => r.MatchCount)
+    .Take(3) // Get the top 3 rows with the most keyword matches
+    .Select(r => r.Rule)
+    .ToList(); 
+
+    if (languageCode!="en"){
+    top3Results[0].Content=translationService.Translate(top3Results[0].Content, "en", languageCode);
+    top3Results[0].Title=translationService.Translate(top3Results[0].Title, "en", languageCode);
+    }
+
+    Console.WriteLine(top3Results.Count());
+    
+     return top3Results;
+}} 
+
+public class LanguageService
 {
     private const string MyMemoryApiUrl = "https://api.mymemory.translated.net/get";
 
@@ -135,5 +188,14 @@ public class TranslationService
             Console.WriteLine($"Error: {response.ErrorMessage}");
             return null!;
         }
+    }
+    public async Task<string> Detect(string text){
+        DetectLanguageClient client = new DetectLanguageClient("ae5fe18158571bd7a684bb04b06ee911");
+        var request = new RestRequest();
+        request.Method = Method.Post;
+        request.AddParameter("q", text);
+        string languageCode = await client.DetectCodeAsync(text);
+        // Console.WriteLine(languageCode);
+        return languageCode;
     }
 }

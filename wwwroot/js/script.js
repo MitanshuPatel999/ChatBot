@@ -86,7 +86,7 @@ async function displayAPIResponseInChatbot(userMessage) {
         // const chatbox = document.getElementById('chatbox');
         // chatbox.innerHTML = 'Fetching data...';
 
-        const response = await fetch('http://localhost:5037/api/rules/searchrules' + userMessage);
+        const response = await fetch('http://localhost:5037/api/rules/rulesmulti' + userMessage);
         const data = await response.json();
         const title = "<b>" + data[0].title + "</b>\n";
         const content = data[0].content;
