@@ -6,16 +6,27 @@ document.addEventListener("DOMContentLoaded", function() {
     function addMessage(sender, message) {
         const messageDiv = document.createElement("div");
         messageDiv.classList.add(sender === "user" ? "user-message" : "bot-message");
-
-        // Add user message instantly
+    
         if (sender === "user") {
-            messageDiv.innerHTML = message;
+            messageDiv.textContent = message;
             chatBox.appendChild(messageDiv);
         } else {
+            const temporaryElement = document.createElement('div');
+            temporaryElement.innerHTML = message;
+            const text = temporaryElement.textContent;
+            const paragraphs = text.split('\n'); // Split text into paragraphs
+            
+            paragraphs.forEach(paragraph => {
+                const paragraphDiv = document.createElement('div');
+                // paragraphDiv.textContent = paragraph;
+                messageDiv.appendChild(paragraphDiv);
+                animateTyping(paragraph, paragraphDiv);
+            });
+    
             chatBox.appendChild(messageDiv);
-
+    
             // Animate the typing of the bot's message
-            animateTyping(message, messageDiv);
+            // animateTyping(text, messageDiv);
         }
     }
 
@@ -70,7 +81,7 @@ async function displayAPIResponseInChatbot(userMessage) {
 
         const response = await fetch('http://localhost:5037/api/rules/searchrules'+userMessage);
         const data = await response.json();
-        const title = "<b>"+data[0].title+"</b>";
+        const title = "<b>"+data[0].title+"</b>\n";
         const content = data[0].content;
         const botResponse=title+"<br>"+content+"<br>";
             // botResponse = JSON.stringify(data, null, 2);
