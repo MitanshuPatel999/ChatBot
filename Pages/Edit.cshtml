@@ -5,9 +5,15 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<html>
+  <head>
+    <title>Edit</title>
+    <link rel="stylesheet" type="text/css" href="~/css/crud2.css" />
+  </head>
+  <body>
+<h1>Edit Rule</h1>
 
-<h4>Rule</h4>
+<h4></h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -40,13 +46,14 @@
                 <span asp-validation-for="Rule.Source" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="button" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a class="button" asp-page="./Crud">Back to List</a>
 </div>
-
+  </body>
+</html>

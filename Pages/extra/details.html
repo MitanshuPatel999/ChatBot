@@ -1,14 +1,8 @@
-@page
-@model ChatBot.Pages.DeleteModel
-
-@{
-    ViewData["Title"] = "Delete";
-}
-
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Delete</title>
-    <link rel="stylesheet" type="text/css" href="~/css/crud2.css" />
+    <title>Details</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <style>
       table.rule-table td:first-child {
         width: 220px; /* Set the width of the first column as needed */
@@ -17,13 +11,11 @@
     </style>
   </head>
   <body>
-
-<h1>Delete Rule</h1>
-
-<h3>Are you sure you want to delete this rule?</h3>
-<div>
-    <hr />
-    <table class="rule-table">
+    <h1>Details</h1>
+    <div>
+      <h4>Rule</h4>
+      <hr />
+      <table class="rule-table">
         <tbody>
           <tr>
             <td>
@@ -67,12 +59,10 @@
           </tr>
         </tbody>
       </table>
-    
-    <form method="post">
-        <input type="hidden" asp-for="Rule.RuleId" />
-        <input type="submit" value="Delete" class="button" /> |
-        <a class="button" asp-page="./Crud">Back to List</a>
-    </form>
-</div>
+    </div>
+    <div>
+      <a class="button" href="edit.html">Edit</a>
+      <a class="button" href="crud.html">Back to List</a>
+    </div>
   </body>
 </html>
