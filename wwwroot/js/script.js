@@ -40,7 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     //     messageDiv.innerHTML += "<br>"; // Add a line break if not the first paragraph
                     // }
                     const paragraphDiv = document.createElement('div');
-
+                    if (index>0){
+                        paragraphDiv.classList.add('paragraph1');
+                    }
                     messageDiv.appendChild(paragraphDiv);
                     await animateTyping(paragraphs[index], paragraphDiv);
                     chatBox.appendChild(messageDiv);
