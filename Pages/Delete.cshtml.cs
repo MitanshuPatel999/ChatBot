@@ -56,7 +56,7 @@ namespace ChatBot.Pages
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Crud");
         }
     }
 }

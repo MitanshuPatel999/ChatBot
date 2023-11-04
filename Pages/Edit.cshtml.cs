@@ -65,7 +65,7 @@ namespace ChatBot.Pages
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Crud");
         }
 
         private bool RuleExists(int id)

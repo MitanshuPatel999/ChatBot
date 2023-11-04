@@ -38,7 +38,7 @@ namespace ChatBot.Pages
             _context.Rules.Add(Rule);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Crud");
         }
     }
 }

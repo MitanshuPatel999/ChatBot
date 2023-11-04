@@ -8,5 +8,10 @@ namespace YourProjectNamespace.Controllers
         {
             return View();
         }
+        public IActionResult OnPost()
+        {
+            return Redirect("/Crud");
+        }
     }
+    
 }

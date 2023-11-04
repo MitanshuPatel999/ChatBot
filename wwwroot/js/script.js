@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 clearInterval(typingInterval);
                 chatBox.scrollTop = chatBox.scrollHeight;
             }
-        }, 50); // Adjust the typing speed by changing the interval (e.g., 50 milliseconds for a faster typing effect)
+        }, 5); // Adjust the typing speed by changing the interval (e.g., 50 milliseconds for a faster typing effect)
     }
 
     sendButton.addEventListener("click", async function () {
