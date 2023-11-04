@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (idToTitleMap.hasOwnProperty(id)) {
                     const title = idToTitleMap[id];
                     const link = document.createElement("a");
+                    link.classList.add('button')
                     const apiEndpoint="http://localhost:5037/api/rules/"
                     link.textContent = title;
                     link.addEventListener("click", function() {

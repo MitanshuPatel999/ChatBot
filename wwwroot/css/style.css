@@ -68,3 +68,27 @@ button:hover {
 .paragraph1{
     font-weight: lighter;
 }
+
+/* Apply these styles to your anchor tag (a) to make it look like a button */
+a.button {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust the padding to change the button size */
+    background-color: #007BFF; /* Button background color */
+    color: #fff; /* Text color */
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px; /* Adjust the font size */
+}
+
+/* Change the appearance when hovering over the button */
+a.button:hover {
+    background-color: #0056b3; /* Hover background color */
+}
+
+/* Change the appearance when clicking the button */
+a.button:active {
+    background-color: #004999; /* Active (clicked) background color */
+}
