@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             .then(data => {
                                 // Handle the API response data
                                 console.log(data);
+                                addMessage("bot", data.content)
                             })
                             .catch(error => {
                                 console.error('Error fetching API data:', error);
