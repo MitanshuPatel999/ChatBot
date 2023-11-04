@@ -113,9 +113,28 @@ async function displayAPIResponseInChatbot(userMessage) {
         const title = "<b>" + data[0].title + "</b>\\n";
         const content = data[0].content;
         const botResponse = title + "<br>" + content + "<br>";
+        console.log(data.length);
+        // var topurl="";
+        // for(i=0;i<data.length;i++){
+        //     topurl+=data[i].title;
+        // }
+        const idToTitleMap = {};
+        // Populate the mapping object
+        data.forEach(item => {
+            idToTitleMap[item.ruleId] = item.title;
+        });
+        // console.log(idToTitleMap[24])
+        for (const id in idToTitleMap) {
+            if (idToTitleMap.hasOwnProperty(id)) {
+                const title = idToTitleMap[id];
+                console.log(`ID: ${id}, Title: ${title}`);
+            }
+        }
         
         return botResponse;
     } catch (error) {
+        const botResponse="No related rule found!";
         console.error('Error fetching API data:', error);
+        return botResponse;
     }
 }

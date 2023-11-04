@@ -140,7 +140,8 @@ public class AsyncAwait
         MatchCount = keywords.Count(keyword =>
             (r.Title != null && r.Title.Contains(keyword, StringComparison.OrdinalIgnoreCase)) ||
             (r.Content != null && r.Content.Contains(keyword, StringComparison.OrdinalIgnoreCase)) ||
-            (r.Source != null && r.Source.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+            (r.Source != null && r.Source.Contains(keyword, StringComparison.OrdinalIgnoreCase)) ||
+            (r.Category != null && r.Category.Contains(keyword, StringComparison.OrdinalIgnoreCase))
         )
     })
     .Where(r => r.MatchCount > 0) // Filter rows with at least one keyword match
