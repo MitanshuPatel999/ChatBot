@@ -14,7 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const temporaryElement = document.createElement('div');
             temporaryElement.innerHTML = message;
             const text = temporaryElement.textContent;
-            const paragraphs = text.split('\n'); // Split text into paragraphs
+            const paragraphs = text.split('\\n'); // Split text into paragraphs
+            console.log(paragraphs.length)
+            console.log(message)
 
             paragraphs.forEach((paragraph, index) => {
                 if (index !== 0) {
@@ -48,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 clearInterval(typingInterval);
                 chatBox.scrollTop = chatBox.scrollHeight;
             }
-        }, 5); // Adjust the typing speed by changing the interval (e.g., 50 milliseconds for a faster typing effect)
+        }, 20); // Adjust the typing speed by changing the interval (e.g., 50 milliseconds for a faster typing effect)
     }
 
     sendButton.addEventListener("click", async function () {
@@ -88,10 +90,10 @@ async function displayAPIResponseInChatbot(userMessage) {
 
         const response = await fetch('http://localhost:5037/api/rules/rulesmulti' + userMessage);
         const data = await response.json();
-        const title = "<b>" + data[0].title + "</b>\n";
+        const title = "<b>" + data[0].title + "</b>\\n";
         const content = data[0].content;
         const botResponse = title + "<br>" + content + "<br>";
-        // botResponse = JSON.stringify(data, null, 2);
+        
         return botResponse;
     } catch (error) {
         console.error('Error fetching API data:', error);
