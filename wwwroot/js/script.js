@@ -18,28 +18,45 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(paragraphs.length)
             console.log(message)
 
-            paragraphs.forEach((paragraph, index) => {
-                if (index !== 0) {
-                    const paragraph1Div = document.createElement('div');
-                    paragraph1Div.classList.add('paragraph1');
-                    messageDiv.appendChild(paragraph1Div);
-                    animateTyping(paragraph, paragraph1Div)
-                } else {
+            // paragraphs.forEach(async (paragraph, index) => {
+            //     if (index !== 0) {
+            //         const paragraph1Div = document.createElement('div');
+            //         paragraph1Div.classList.add('paragraph1');
+            //         messageDiv.appendChild(paragraph1Div);
+            //         await animateTyping(paragraph, paragraph1Div)
+            //     } else {
+            //         const paragraphDiv = document.createElement('div');
+            //         messageDiv.appendChild(paragraphDiv);
+            //         paragraphDiv.textContent = paragraph
+            //     };
+            // }
+            // );
+
+
+            // chatBox.appendChild(messageDiv);
+            async function typeNextParagraph(index) {
+                if (index < paragraphs.length) {
+                    // if (messageDiv.innerHTML !== "") {
+                    //     messageDiv.innerHTML += "<br>"; // Add a line break if not the first paragraph
+                    // }
                     const paragraphDiv = document.createElement('div');
+
                     messageDiv.appendChild(paragraphDiv);
-                    paragraphDiv.textContent = paragraph
-                };
+                    await animateTyping(paragraphs[index], paragraphDiv);
+                    chatBox.appendChild(messageDiv);
+                    typeNextParagraph(index + 1); // Recursively type the next paragraph
+                } else {
+                    chatBox.appendChild(messageDiv); // Add the fully typed message to the chatBox
+                }
             }
-            );
-
-            chatBox.appendChild(messageDiv);
-
+            typeNextParagraph(0);
             // Animate the typing of the bot's message
             // animateTyping(text, messageDiv);
         }
     }
 
-    function animateTyping(message, messageDiv) {
+    async function animateTyping(message, messageDiv) {
+        return new Promise(resolve => {
         let currentIndex = 0;
 
         const typingInterval = setInterval(function () {
@@ -49,9 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 clearInterval(typingInterval);
                 chatBox.scrollTop = chatBox.scrollHeight;
+                resolve(); // Resolve the promise when typing is complete
             }
         }, 20); // Adjust the typing speed by changing the interval (e.g., 50 milliseconds for a faster typing effect)
-    }
+    });}
 
     sendButton.addEventListener("click", async function () {
         const userMessage = userInput.value;
