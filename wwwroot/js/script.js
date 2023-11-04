@@ -52,6 +52,35 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
             typeNextParagraph(0);
+            
+            for (const id in idToTitleMap) {
+                if (idToTitleMap.hasOwnProperty(id)) {
+                    const title = idToTitleMap[id];
+                    const link = document.createElement("a");
+                    const apiEndpoint="http://localhost:5037/api/rules/"
+                    link.textContent = title;
+                    link.addEventListener("click", function() {
+                        // Handle the click event by making an API request with the ID
+                        const apiRequestUrl = apiEndpoint+id;
+                        // Perform your API request here, e.g., using fetch
+                        fetch(apiRequestUrl)
+                            .then(response => response.json())
+                            .then(data => {
+                                // Handle the API response data
+                                console.log(data);
+                            })
+                            .catch(error => {
+                                console.error('Error fetching API data:', error);
+                            });
+                    });
+                    chatBox.appendChild(link);
+                }
+            }
+
+                    
+                    // Create an anchor element
+                    // const link = document.createElement("a");
+                    // link.textContent = title;
             // Animate the typing of the bot's message
             // animateTyping(text, messageDiv);
         }
@@ -70,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 chatBox.scrollTop = chatBox.scrollHeight;
                 resolve(); // Resolve the promise when typing is complete
             }
-        }, 20); // Adjust the typing speed by changing the interval (e.g., 50 milliseconds for a faster typing effect)
+        }, 15); // Adjust the typing speed by changing the interval (e.g., 50 milliseconds for a faster typing effect)
     });}
 
     sendButton.addEventListener("click", async function () {
@@ -101,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
+const idToTitleMap = {};
 async function displayAPIResponseInChatbot(userMessage) {
     try {
         // Display a loading message in the chatbox while waiting for the response.
@@ -118,7 +147,6 @@ async function displayAPIResponseInChatbot(userMessage) {
         // for(i=0;i<data.length;i++){
         //     topurl+=data[i].title;
         // }
-        const idToTitleMap = {};
         // Populate the mapping object
         data.forEach(item => {
             idToTitleMap[item.ruleId] = item.title;
@@ -133,6 +161,7 @@ async function displayAPIResponseInChatbot(userMessage) {
         
         return botResponse;
     } catch (error) {
+        // idToTitleMap = {};
         const botResponse="No related rule found!";
         console.error('Error fetching API data:', error);
         return botResponse;
