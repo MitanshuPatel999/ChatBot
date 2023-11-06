@@ -35,55 +35,85 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // chatBox.appendChild(messageDiv);
             async function typeNextParagraph(index) {
+                const paragraphDiv = document.createElement('div');
                 if (index < paragraphs.length) {
                     // if (messageDiv.innerHTML !== "") {
                     //     messageDiv.innerHTML += "<br>"; // Add a line break if not the first paragraph
                     // }
-                    const paragraphDiv = document.createElement('div');
+                    
                     if (index>0){
                         paragraphDiv.classList.add('paragraph1');
                     }
                     messageDiv.appendChild(paragraphDiv);
                     await animateTyping(paragraphs[index], paragraphDiv);
                     chatBox.appendChild(messageDiv);
-                    typeNextParagraph(index + 1); // Recursively type the next paragraph
-                } else {
-                    chatBox.appendChild(messageDiv); // Add the fully typed message to the chatBox
+                    typeNextParagraph(index + 1); // Recursively type the next paragraph   
+                } 
+                if (index == paragraphs.length-1){
+                    for (const id in idToTitleMap) {
+                        if (idToTitleMap.hasOwnProperty(id)) {
+                            const title = idToTitleMap[id];
+                            const link = document.createElement("a");
+                            link.classList.add('button')
+                            // const elementsToDelete = document.querySelectorAll(".button");
+                            const apiEndpoint="http://localhost:5037/api/rules/"
+                            link.textContent = title;
+                            link.addEventListener("click", function() {
+                                // Handle the click event by making an API request with the ID
+                                const apiRequestUrl = apiEndpoint+id;
+                                // Perform your API request here, e.g., using fetch
+                                fetch(apiRequestUrl)
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        // Handle the API response data
+                                        console.log(data);
+                                        delete idToTitleMap[data.ruleId]
+                                        addMessage("bot",data.title+"\\n"+data.content)
+                                    })
+                                    .catch(error => {
+                                        console.error('Error fetching API data:', error);
+                                    });
+                            });
+                            paragraphDiv.appendChild(link);
+                           
+                        }
+                    } 
                 }
+                
+                // else {
+                //     chatBox.appendChild(messageDiv); // Add the fully typed message to the chatBox
+                // }
             }
             typeNextParagraph(0);
             
-            for (const id in idToTitleMap) {
-                if (idToTitleMap.hasOwnProperty(id)) {
-                    const title = idToTitleMap[id];
-                    const link = document.createElement("a");
-                    link.classList.add('button')
-                    const elementsToDelete = document.querySelectorAll(".button");
-                    const apiEndpoint="http://localhost:5037/api/rules/"
-                    link.textContent = title;
-                    link.addEventListener("click", function() {
-                        // Handle the click event by making an API request with the ID
-                        const apiRequestUrl = apiEndpoint+id;
-                        // Perform your API request here, e.g., using fetch
-                        fetch(apiRequestUrl)
-                            .then(response => response.json())
-                            .then(data => {
-                                // Handle the API response data
-                                console.log(data);
-                                delete idToTitleMap[data.ruleId]
-                                addMessage("bot",data.title+"\\n"+data.content)
-                            })
-                            .catch(error => {
-                                console.error('Error fetching API data:', error);
-                            });
-                    });
-                    chatBox.appendChild(link);
-                    // elementsToDelete.forEach(function(element) {
-                    //     element.remove();
-                    // }); 
-                    
-                }
-            }
+            // for (const id in idToTitleMap) {
+            //     if (idToTitleMap.hasOwnProperty(id)) {
+            //         const title = idToTitleMap[id];
+            //         const link = document.createElement("a");
+            //         link.classList.add('button')
+            //         // const elementsToDelete = document.querySelectorAll(".button");
+            //         const apiEndpoint="http://localhost:5037/api/rules/"
+            //         link.textContent = title;
+            //         link.addEventListener("click", function() {
+            //             // Handle the click event by making an API request with the ID
+            //             const apiRequestUrl = apiEndpoint+id;
+            //             // Perform your API request here, e.g., using fetch
+            //             fetch(apiRequestUrl)
+            //                 .then(response => response.json())
+            //                 .then(data => {
+            //                     // Handle the API response data
+            //                     console.log(data);
+            //                     delete idToTitleMap[data.ruleId]
+            //                     addMessage("bot",data.title+"\\n"+data.content)
+            //                 })
+            //                 .catch(error => {
+            //                     console.error('Error fetching API data:', error);
+            //                 });
+            //         });
+            //         paragraphDiv.appendChild(link);
+                   
+            //     }
+            // }
         }
     }
 
