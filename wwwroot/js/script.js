@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             // chatBox.appendChild(messageDiv);
+            let first=true;
             async function typeNextParagraph(index) {
                 const paragraphDiv = document.createElement('div');
                 if (index < paragraphs.length) {
@@ -51,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 } 
                 if (index == paragraphs.length-1){
                     for (const id in idToTitleMap) {
-                        if (idToTitleMap.hasOwnProperty(id)) {
+                        if (idToTitleMap.hasOwnProperty(id)&&!first) {
                             const title = idToTitleMap[id];
                             const link = document.createElement("a");
                             link.classList.add('button')
@@ -68,7 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                         // Handle the API response data
                                         console.log(data);
                                         delete idToTitleMap[data.ruleId]
-                                        addMessage("bot",data.title+"\\n"+data.content)
+                                        addMessage("bot",data.title+"\\n"+data.content+"\\n"+
+                                        "Here are the other related rule/s based on your query:\\n")
                                     })
                                     .catch(error => {
                                         console.error('Error fetching API data:', error);
@@ -76,6 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             });
                             paragraphDiv.appendChild(link);
                            
+                        }else{
+                            first=false;
                         }
                     } 
                 }
@@ -157,7 +161,8 @@ document.addEventListener("DOMContentLoaded", function () {
             botResponse = "Bot: " + await displayAPIResponseInChatbot(userMessage);
         }
 
-        addMessage("bot", botResponse);
+        addMessage("bot", botResponse+"\\n"+
+        "Here are the other related rule/s based on your query:\\n");
     });
 
     userInput.addEventListener("keyup", function (event) {
@@ -177,7 +182,7 @@ async function displayAPIResponseInChatbot(userMessage) {
         const data = await response.json();
         const title = "<b>" + data[0].title + "</b>\\n";
         const content = data[0].content;
-        const botResponse = title + "<br>" + content + "<br>";
+        const botResponse = title + "<br>" + content + "<br>\\n";
         console.log(data.length);
 
         // Populate the mapping object

@@ -122,7 +122,7 @@ public IActionResult RulesMulti(string query)
 
 public class AsyncAwait
 {public async Task<List<Rule>> AsaW(string query,MyDbContext _context){
-        var translationService = new LanguageService();
+    var translationService = new LanguageService();
     Task<string> task=translationService.Detect(query);
     string languageCode=await task;
     Console.WriteLine(languageCode);
@@ -139,14 +139,14 @@ public class AsyncAwait
        Rule = r,
         MatchCount = keywords.Count(keyword =>
             (r.Title != null && r.Title.Contains(keyword, StringComparison.OrdinalIgnoreCase)) ||
-            (r.Content != null && r.Content.Contains(keyword, StringComparison.OrdinalIgnoreCase)) ||
+            // (r.Content != null && r.Content.Contains(keyword, StringComparison.OrdinalIgnoreCase)) ||
             (r.Source != null && r.Source.Contains(keyword, StringComparison.OrdinalIgnoreCase)) ||
             (r.Category != null && r.Category.Contains(keyword, StringComparison.OrdinalIgnoreCase))
         )
     })
     .Where(r => r.MatchCount > 0) // Filter rows with at least one keyword match
     .OrderByDescending(r => r.MatchCount)
-    .Take(3) // Get the top 3 rows with the most keyword matches
+    .Take(5) // Get the top 3 rows with the most keyword matches
     .Select(r => r.Rule)
     .ToList(); 
 
