@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const title = idToTitleMap[id];
                     const link = document.createElement("a");
                     link.classList.add('button')
+                    const elementsToDelete = document.querySelectorAll(".button");
                     const apiEndpoint="http://localhost:5037/api/rules/"
                     link.textContent = title;
                     link.addEventListener("click", function() {
@@ -69,22 +70,20 @@ document.addEventListener("DOMContentLoaded", function () {
                             .then(data => {
                                 // Handle the API response data
                                 console.log(data);
-                                addMessage("bot", data.content)
+                                delete idToTitleMap[data.ruleId]
+                                addMessage("bot",data.title+"\\n"+data.content)
                             })
                             .catch(error => {
                                 console.error('Error fetching API data:', error);
                             });
                     });
                     chatBox.appendChild(link);
+                    // elementsToDelete.forEach(function(element) {
+                    //     element.remove();
+                    // }); 
+                    
                 }
             }
-
-                    
-                    // Create an anchor element
-                    // const link = document.createElement("a");
-                    // link.textContent = title;
-            // Animate the typing of the bot's message
-            // animateTyping(text, messageDiv);
         }
     }
 
@@ -105,6 +104,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });}
 
     sendButton.addEventListener("click", async function () {
+        for (const key in idToTitleMap) {
+            if (idToTitleMap.hasOwnProperty(key)) {
+                delete idToTitleMap[key];
+            }
+        }
         const userMessage = userInput.value;
         addMessage("user", userMessage);
         userInput.value = "";
@@ -136,8 +140,8 @@ const idToTitleMap = {};
 async function displayAPIResponseInChatbot(userMessage) {
     try {
         // Display a loading message in the chatbox while waiting for the response.
-        // const chatbox = document.getElementById('chatbox');
-        // chatbox.innerHTML = 'Fetching data...';
+        // const chatBox = document.getElementById("chat-box");
+        // chatBox.innerHTML = 'Fetching data...';
 
         const response = await fetch('http://localhost:5037/api/rules/rulesmulti' + userMessage);
         const data = await response.json();
@@ -145,10 +149,7 @@ async function displayAPIResponseInChatbot(userMessage) {
         const content = data[0].content;
         const botResponse = title + "<br>" + content + "<br>";
         console.log(data.length);
-        // var topurl="";
-        // for(i=0;i<data.length;i++){
-        //     topurl+=data[i].title;
-        // }
+
         // Populate the mapping object
         data.forEach(item => {
             idToTitleMap[item.ruleId] = item.title;

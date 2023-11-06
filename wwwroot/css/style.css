@@ -70,6 +70,7 @@ button:hover {
 }
 
 /* Apply these styles to your anchor tag (a) to make it look like a button */
+
 a.button {
     display: inline-block;
     padding: 10px 20px; /* Adjust the padding to change the button size */
@@ -81,6 +82,8 @@ a.button {
     border-radius: 4px; /* Rounded corners */
     cursor: pointer;
     font-size: 16px; /* Adjust the font size */
+    margin: 5px;
+    border-radius: 5px;
 }
 
 /* Change the appearance when hovering over the button */
